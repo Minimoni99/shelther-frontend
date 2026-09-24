@@ -54,12 +54,16 @@ export default function NavBar() {
         </button>
         {user ? (
           <Link href="/account" className="btn btn-outline btn-sm">
-            <svg className="icon-sm"><use href="#icon-user" /></svg>{user.name || "My Account"}
+            <svg className="icon-sm"><use href="#icon-user" /></svg>
+            <span className="full-label">{user.name || "My Account"}</span>
           </Link>
         ) : (
           <Link href="/login" className="btn btn-ghost btn-sm">Sign in</Link>
         )}
-        <Link href="/list-a-property" className="btn btn-outline btn-sm">List a property</Link>
+        <Link href="/list-a-property" className="btn btn-outline btn-sm">
+          <svg className="icon-sm"><use href="#icon-home" /></svg>
+          <span className="full-label">List a property</span>
+        </Link>
       </div>
     </nav>
   );
