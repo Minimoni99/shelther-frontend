@@ -1,0 +1,38 @@
+// Renders once in the root layout; every icon elsewhere is just
+// <svg className="icon"><use href="#icon-x"/></svg> referencing this.
+export default function IconSprite() {
+  return (
+    <svg style={{ display: "none" }} aria-hidden="true">
+      <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="7" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></symbol>
+      <symbol id="icon-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s7-7.5 7-13a7 7 0 1 0-14 0c0 5.5 7 13 7 13z" /><circle cx="12" cy="9" r="2.5" /></symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><polyline points="4,13 9,18 20,6" /></symbol>
+      <symbol id="icon-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="11" width="16" height="10" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></symbol>
+      <symbol id="icon-message" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M4 5h16v11H8l-4 4V5z" /></symbol>
+      <symbol id="icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="16" rx="2" /><line x1="3" y1="10" x2="21" y2="10" /><line x1="8" y1="3" x2="8" y2="7" /><line x1="16" y1="3" x2="16" y2="7" /></symbol>
+      <symbol id="icon-wallet" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="6" width="18" height="13" rx="2" /><path d="M3 10h18" /><circle cx="16.5" cy="14.5" r="1.1" fill="currentColor" stroke="none" /></symbol>
+      <symbol id="icon-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="21" x2="5" y2="12" /><line x1="12" y1="21" x2="12" y2="7" /><line x1="19" y1="21" x2="19" y2="15" /><line x1="3" y1="21" x2="21" y2="21" /></symbol>
+      <symbol id="icon-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="8" height="8" rx="1.5" /><rect x="13" y="3" width="8" height="8" rx="1.5" /><rect x="3" y="13" width="8" height="8" rx="1.5" /><rect x="13" y="13" width="8" height="8" rx="1.5" /></symbol>
+      <symbol id="icon-logout" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" /><polyline points="10,17 15,12 10,7" /><line x1="15" y1="12" x2="3" y2="12" /></symbol>
+      <symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="4.5" /><line x1="12" y1="1.5" x2="12" y2="4" /><line x1="12" y1="20" x2="12" y2="22.5" /><line x1="1.5" y1="12" x2="4" y2="12" /><line x1="20" y1="12" x2="22.5" y2="12" /><line x1="4.5" y1="4.5" x2="6.2" y2="6.2" /><line x1="17.8" y1="17.8" x2="19.5" y2="19.5" /><line x1="4.5" y1="19.5" x2="6.2" y2="17.8" /><line x1="17.8" y1="6.2" x2="19.5" y2="4.5" /></symbol>
+      <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z" /></symbol>
+      <symbol id="icon-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M4 8h3l1.5-2.5h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" /><circle cx="12" cy="13" r="3.5" /></symbol>
+      <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="3.6" /><path d="M4.5 20c1.4-4 4.3-6 7.5-6s6.1 2 7.5 6" /></symbol>
+      <symbol id="icon-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z" /><polyline points="15,2 15,7 20,7" /><line x1="8" y1="13" x2="16" y2="13" /><line x1="8" y1="17" x2="16" y2="17" /></symbol>
+      <symbol id="icon-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M4 11.5 12 4l8 7.5" /><path d="M6 10v10h12V10" /></symbol>
+      <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><line x1="4" y1="12" x2="20" y2="12" /><polyline points="14,6 20,12 14,18" /></symbol>
+      <symbol id="icon-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="10" r="6.5" /><path d="M8.5 15.5 7 21l5-2.2 5 2.2-1.5-5.5" /></symbol>
+      <symbol id="illus-house" viewBox="0 0 160 120">
+        <rect x="0" y="86" width="160" height="34" fill="var(--surface-2)" />
+        <rect x="28" y="46" width="104" height="70" rx="3" fill="var(--surface)" stroke="var(--border)" strokeWidth="1.5" />
+        <polygon points="80,14 18,50 142,50" fill="currentColor" opacity="0.92" />
+        <rect x="68" y="82" width="24" height="34" fill="var(--surface-2)" stroke="var(--border)" strokeWidth="1.2" />
+        <rect x="40" y="62" width="18" height="18" rx="2" fill="var(--surface-2)" stroke="var(--border)" strokeWidth="1.2" />
+        <rect x="102" y="62" width="18" height="18" rx="2" fill="var(--surface-2)" stroke="var(--border)" strokeWidth="1.2" />
+        <line x1="49" y1="62" x2="49" y2="80" stroke="var(--border)" strokeWidth="1" />
+        <line x1="40" y1="71" x2="58" y2="71" stroke="var(--border)" strokeWidth="1" />
+        <line x1="111" y1="62" x2="111" y2="80" stroke="var(--border)" strokeWidth="1" />
+        <line x1="102" y1="71" x2="120" y2="71" stroke="var(--border)" strokeWidth="1" />
+      </symbol>
+    </svg>
+  );
+}
