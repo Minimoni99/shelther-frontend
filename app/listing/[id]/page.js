@@ -42,7 +42,8 @@ export default function ListingDetailPage() {
   const router = useRouter();
   const [listing, setListing] = useState(null);
   const [error, setError] = useState("");
-  const [slide, setSlide] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
   const [myMeeting, setMyMeeting] = useState(null);
   const [showMeetingModal, setShowMeetingModal] = useState(false);
   const [payError, setPayError] = useState("");
@@ -72,8 +73,9 @@ export default function ListingDetailPage() {
   const meetingApproved = myMeeting && myMeeting.status === "approved";
   const canPay = !needsMeetingGate || meetingApproved;
 
-  function nextSlide() { setSlide((s) => (s + 1) % Math.max(photos.length, 1)); }
-  function prevSlide() { setSlide((s) => (s - 1 + Math.max(photos.length, 1)) % Math.max(photos.length, 1)); }
+  function moveLightbox(dir) {
+    setLightboxIndex((i) => (i + dir + photos.length) % photos.length);
+  }
 
   async function handlePay() {
     if (!getToken()) { router.push(`/login?next=/listing/${id}`); return; }
@@ -100,24 +102,41 @@ export default function ListingDetailPage() {
   return (
     <div>
       {photos.length > 0 && (
-        <div className="carousel">
-          <div className="carousel-track">
+        <div className="gallery-strip-wrap">
+          <div className="gallery-strip">
             {photos.map((url, i) => (
-              <img key={url + i} src={resolveImageUrl(url)} className={i === slide ? "active" : ""} alt="" />
+              <div key={url + i} className="photo-card" onClick={() => { setLightboxIndex(i); setLightboxOpen(true); }}>
+                <img src={resolveImageUrl(url)} alt="" />
+                {i === 3 && photos.length > 4 && <span className="count-badge">+{photos.length - 4} more</span>}
+              </div>
             ))}
           </div>
-          {photos.length > 1 && (
-            <>
-              <button className="carousel-arrow prev" onClick={prevSlide}><svg className="icon"><use href="#icon-chevron-left" /></svg></button>
-              <button className="carousel-arrow next" onClick={nextSlide}><svg className="icon"><use href="#icon-chevron-right" /></svg></button>
-              <div className="carousel-counter">{slide + 1} / {photos.length}</div>
-              <div className="carousel-dots">
-                {photos.map((_, i) => (
-                  <span key={i} className={i === slide ? "active" : ""} onClick={() => setSlide(i)} />
+          <p className="gallery-hint">{photos.length} photo{photos.length !== 1 ? "s" : ""} — scroll to see more, click any to expand</p>
+        </div>
+      )}
+
+      {lightboxOpen && (
+        <div className="lightbox-overlay" onClick={(e) => e.target === e.currentTarget && setLightboxOpen(false)}>
+          <div className="lightbox-card">
+            <button className="lightbox-close" onClick={() => setLightboxOpen(false)}><svg className="icon"><use href="#icon-close" /></svg></button>
+            <div className="lightbox-img-wrap">
+              <img src={resolveImageUrl(photos[lightboxIndex])} alt="" />
+              {photos.length > 1 && (
+                <>
+                  <button className="lightbox-arrow prev" onClick={() => moveLightbox(-1)}><svg className="icon"><use href="#icon-chevron-left" /></svg></button>
+                  <button className="lightbox-arrow next" onClick={() => moveLightbox(1)}><svg className="icon"><use href="#icon-chevron-right" /></svg></button>
+                  <div className="lightbox-counter">{lightboxIndex + 1} / {photos.length}</div>
+                </>
+              )}
+            </div>
+            {photos.length > 1 && (
+              <div className="lightbox-thumbs">
+                {photos.map((url, i) => (
+                  <img key={url + i} src={resolveImageUrl(url)} className={i === lightboxIndex ? "active" : ""} onClick={() => setLightboxIndex(i)} alt="" />
                 ))}
               </div>
-            </>
-          )}
+            )}
+          </div>
         </div>
       )}
 

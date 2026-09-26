@@ -243,18 +243,28 @@ img{max-width:100%; display:block;}
   .card-grid{grid-template-columns:1fr;}
 }
 
-/* ---- Listing detail: carousel ---- */
-.carousel{position:relative; max-width:1180px; margin:24px auto 0; border-radius:var(--radius-lg); overflow:hidden; background:var(--surface-2); box-shadow:var(--shadow);}
-.carousel-track{position:relative; width:100%; aspect-ratio:16/9;}
-.carousel-track img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .35s ease;}
-.carousel-track img.active{opacity:1;}
-.carousel-arrow{position:absolute; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; background:rgba(20,24,26,0.55); color:#fff; border:none; display:flex; align-items:center; justify-content:center; cursor:pointer;}
-.carousel-arrow:hover{background:rgba(20,24,26,0.75);}
-.carousel-arrow.prev{left:16px;} .carousel-arrow.next{right:16px;}
-.carousel-counter{position:absolute; bottom:14px; right:16px; background:rgba(20,24,26,0.6); color:#fff; font-size:12.5px; font-weight:700; padding:5px 12px; border-radius:999px;}
-.carousel-dots{position:absolute; bottom:14px; left:16px; display:flex; gap:5px; max-width:60%; overflow-x:auto;}
-.carousel-dots span{width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.45); flex-shrink:0; cursor:pointer;}
-.carousel-dots span.active{background:#fff;}
+/* ---- Listing detail: photo strip + contained lightbox ---- */
+.gallery-strip-wrap{max-width:1180px; margin:24px auto 0; padding:0 28px;}
+.gallery-strip{display:flex; gap:12px; overflow-x:auto; padding-bottom:6px; scroll-snap-type:x mandatory;}
+.gallery-strip::-webkit-scrollbar{height:6px;}
+.gallery-strip::-webkit-scrollbar-thumb{background:var(--border); border-radius:3px;}
+.photo-card{flex:0 0 260px; aspect-ratio:4/3; border-radius:var(--radius-md); overflow:hidden; border:1px solid var(--border); box-shadow:var(--shadow); cursor:pointer; position:relative; scroll-snap-align:start; background:var(--surface-2);}
+.photo-card img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .25s ease;}
+.photo-card:hover img{transform:scale(1.04);}
+.photo-card .count-badge{position:absolute; bottom:8px; right:8px; background:rgba(20,24,26,0.65); color:#fff; font-size:11.5px; font-weight:700; padding:3px 9px; border-radius:999px;}
+.gallery-hint{font-size:12.5px; color:var(--ink-faint); margin-top:8px;}
+
+.lightbox-overlay{position:fixed; inset:0; background:rgba(20,24,26,0.72); display:flex; align-items:center; justify-content:center; z-index:300; padding:40px 24px;}
+.lightbox-card{position:relative; width:100%; max-width:760px; max-height:80vh; background:var(--surface); border-radius:var(--radius-lg); overflow:hidden; box-shadow:0 30px 80px -20px rgba(0,0,0,0.5);}
+.lightbox-img-wrap{width:100%; aspect-ratio:4/3; background:var(--surface-2); position:relative;}
+.lightbox-img-wrap img{width:100%; height:100%; object-fit:cover; display:block;}
+.lightbox-close{position:absolute; top:14px; right:14px; width:36px; height:36px; border-radius:50%; background:rgba(20,24,26,0.55); color:#fff; border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:2;}
+.lightbox-arrow{position:absolute; top:50%; transform:translateY(-50%); width:40px; height:40px; border-radius:50%; background:rgba(20,24,26,0.5); color:#fff; border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:2;}
+.lightbox-arrow.prev{left:12px;} .lightbox-arrow.next{right:12px;}
+.lightbox-counter{position:absolute; bottom:12px; left:50%; transform:translateX(-50%); background:rgba(20,24,26,0.6); color:#fff; font-size:12.5px; font-weight:700; padding:5px 12px; border-radius:999px;}
+.lightbox-thumbs{display:flex; gap:8px; padding:12px; overflow-x:auto;}
+.lightbox-thumbs img{width:56px; height:44px; object-fit:cover; border-radius:6px; cursor:pointer; opacity:0.55; flex-shrink:0; border:2px solid transparent;}
+.lightbox-thumbs img.active{opacity:1; border-color:var(--primary);}
 
 /* ---- Listing detail layout ---- */
 .detail-wrap{max-width:1180px; margin:0 auto; padding:28px;}

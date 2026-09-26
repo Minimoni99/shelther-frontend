@@ -51,6 +51,7 @@ export default function IconSprite() {
       <symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="8" r="3" /><path d="M2 20c1-3.3 3.5-5 7-5s6 1.7 7 5" /><circle cx="17" cy="8" r="2.6" /><path d="M16 15.2c2.6.5 4.2 2 5 4.8" /></symbol>
       <symbol id="icon-door" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2" width="14" height="20" rx="1" /><circle cx="15" cy="12" r="1" fill="currentColor" stroke="none" /></symbol>
       <symbol id="icon-floor" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="4" width="16" height="4.5" rx="1" /><rect x="4" y="10" width="16" height="4.5" rx="1" /><rect x="4" y="16" width="16" height="4" rx="1" /></symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><line x1="6" y1="6" x2="18" y2="18" /><line x1="18" y1="6" x2="6" y2="18" /></symbol>
     </svg>
   );
 }
